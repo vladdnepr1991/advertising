@@ -1,0 +1,389 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.advertising-wrapper, .advertising {
+    width: 970px;
+    height: 250px;
+    margin: 0;
+    padding: 0;    
+}
+
+.advertising-wrapper {
+    position: relative;
+    border: 1px solid black;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;    
+    user-select: none;
+    cursor: pointer;
+}
+
+.advertising-wrapper.loading .features-wrapper {
+    opacity: 0;
+}
+
+.advertising-wrapper.loading .screens,
+.advertising-wrapper.loading .slider,
+.advertising-wrapper.loading .additional-screen-layers {
+    top: 260px;
+}
+
+.advertising-wrapper.loading .controls .slider-description,
+.advertising-wrapper.loading .controls .buy-btn-wrapper {
+    opacity: 0;    
+}
+
+.advertising-wrapper.loading .load-screen {
+    display: block;
+}
+
+.advertising {
+    position: absolute;
+}
+
+.advertising .advertising__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 220px;
+    width: 270px;
+    padding: 30px 0 0 30px;
+}
+
+.advertising .advertising__header .logo-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 270px;
+    height: 50px;
+}
+
+.logo-wrapper .logo-item {
+    display: block;
+}
+
+.advertising .advertising__header .features-wrapper {
+    position: absolute;
+    width: 270px;
+    bottom: 0;
+    opacity: 1;
+    font-size: 24px;
+    -webkit-transition: opacity 1s 2s;
+    -moz-transition: opacity 1s 2s;
+    transition: opacity 1s 2s;    
+}
+
+.features-wrapper .feature-item {
+    position: absolute;
+    bottom: 0;
+    padding: 0 30px 30px 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.features-wrapper .feature-item.visible {
+    opacity: 1;
+}
+
+.advertising .screens {
+    position: absolute;
+    top: 15px;
+    left: 293px;
+    width: 524px;
+    height: 221px;
+    -webkit-transition: top 0.8s;
+    -moz-transition: top 0.8s;
+    transition: top 0.8s;    
+}
+
+.advertising .additional-screen-layers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 970px;
+    height: 250px;    
+    -webkit-transition: top 0.8s;
+    -moz-transition: top 0.8s;
+    transition: top 0.8s;    
+}
+
+.advertising .screens .screen-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 524px;
+    height: 250px;
+}
+
+.advertising .screens .screen-effects .flash {
+    position: absolute;
+    top: 12px;
+    left: 50px;
+    width: 99px;
+    height: 99px;
+    opacity: 0;
+    background: url("../images/flash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    -webkit-transition: top 0.3s, left 0.3s, width 0.3s, height 0.3s, -webkit-transform 0.3s;
+    -moz-transition: top 0.3s, left 0.3s, width 0.3s, height 0.3s, -moz-transform 0.3s;
+    transition: top 0.3s, left 0.3s, width 0.3s, height 0.3s, transform 0.3s;
+}
+
+.advertising .screens .screen-effects .flash.animated {
+    opacity: 1;
+    -webkit-transform: rotate(360deg) scale(4, 4);
+    -ms-transform: rotate(360deg) scale(4, 4);
+    -moz-transform: rotate(360deg) scale(4, 4);
+    transform: rotate(360deg) scale(4, 4);
+}
+
+.advertising .screens .screen-effects .rain {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 524px;
+    height: 250px;
+    overflow: hidden;
+    opacity: 1;
+    -webkit-transition: opacity 0.4s;
+    -moz-transition: opacity 0.4s;
+    transition: opacity 0.4s;    
+}
+
+.advertising .screens .screen-effects .rain.unvisible {
+    opacity: 0;
+}
+
+.advertising .screens .screen-effects .rain .drop-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: top 3s, width 7s -webkit-transform 0.1s ease-out;
+    -moz-transition: top 3s, width 7s -moz-transform 0.1s ease-out;
+    transition: top 3s, width 7s, transform 0.1s ease-out;
+    -ms-transform: scale(3, 3);
+    -moz-transform: scale(3, 3);
+    -webkit-transform: scale(3, 3);
+    transform: scale(3, 3);    
+}
+
+.advertising .screens .screen-effects .rain .drop-item.drop-1 {
+    width: 30px;
+    height: 28px;
+    content: url("../images/raindrop_1.png");
+}
+
+.advertising .screens .screen-effects .rain .drop-item.drop-2 {
+    width: 15px;
+    height: 23px;
+    content: url("../images/raindrop_2.png");
+}
+
+.advertising .screens .screen-effects .rain .drop-item.drop-3 {
+    width: 22px;
+    height: 19px;
+    content: url("../images/raindrop_3.png");
+}
+
+.advertising .screens .screen-effects .rain .drop-item.drop-4 {
+    width: 15px;
+    height: 24px;
+    content: url("../images/raindrop_4.png");
+}
+
+.advertising .screens .screen-effects .rain .drop-item.origin-size {
+    -ms-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.advertising .screens .screen-item {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 514px;
+    height: 221px;                
+}
+
+.video-advertising {
+    position: absolute;
+    top: 15px;
+    left: 77px;
+}
+
+.phone-highlights,
+.phone-internals,
+.phone-internals-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 970px;
+    height: 250px;    
+    pointer-events: none;
+}
+
+.phone-highlights {
+    background-image: url("../images/highlights.png");
+}
+
+.phone-internals {
+    opacity: 0;
+    background-image: url("../images/internals.png");
+    -webkit-transition: opacity 0.1s;
+    -moz-transition: opacity 0.1s;
+    transition: opacity 0.1s;
+}
+
+.phone-internals.visible {
+    opacity: 1;
+}
+
+.card-highlight-wrapper {
+    position: absolute;
+    top: 155px;
+    left: 371px;
+    width: 50px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.card-highlight-wrapper .card-highlight {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 80px;
+    height: 160px;
+    opacity: 0;
+    background-image: url("../images/card_highlight.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: rotate(-45deg);
+}
+
+@keyframes card-highlight {
+    from {
+        top: 20px;
+        opacity: 0;
+    }
+
+    to {
+        top: -100px;
+        opacity: 1;
+    }
+}
+
+.card-highlight-wrapper.animated .card-highlight {
+    animation: card-highlight 1s 1s 2;
+    -webkit-animation: card-highlight 1s 1s 2;
+    -moz-animation: card-highlight 1s 1s 2;
+}
+
+.phone-internals-frame {
+    z-index: 5;
+    opacity: 0;
+    background-image: url("../images/internals_frame.png");
+}
+
+.phone-internals-frame.visible {
+    opacity: 1;
+}
+
+.slider {
+    position: absolute;
+    right: 150px;
+    top: 25px;    
+    width: 20px;
+    height: 221px;
+    z-index: 100;
+    -webkit-transition: top 0.8s;
+    -moz-transition: top 0.8s;
+    transition: top 0.8s;    
+}
+
+.slider .slider-scale {
+    position: relative;
+    top: 0;
+    width: 1px;
+    height: 200px;
+    left: 7px;
+    background-color: #ccc;
+}
+
+.slider .slider-handle {
+    position: absolute;
+    left: -9px;
+    top: 17px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: black;
+    cursor: move;
+}
+
+.controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 250px;
+    text-align: center;
+}
+
+.controls .slider-description {
+    position: absolute;
+    top: 15px;
+    width: 150px;
+    font-size: 12px;
+    opacity: 1;
+    color: black;
+    -webkit-transition: opacity 1s 1s;
+    -moz-transition: opacity 1s 1s;
+    transition: opacity 1s 1s;    
+}
+
+.controls .buy-btn-wrapper {
+    position: absolute;
+    width: 150px;
+    bottom: 20px;
+    opacity: 1;
+    text-align: center;
+    -webkit-transition: opacity 1s 2s;
+    -moz-transition: opacity 1s 2s;
+    transition: opacity 1s 2s;
+}
+
+.controls .buy-btn-wrapper .buy-btn {
+    width: 90px;
+    height: 42px;
+    background-color: transparent;
+    background-image: url("../images/T_CTA.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.load-screen {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 300px;
+    height: 250px;
+    width: 499px;
+    padding: 100px 0 0 0;
+    font-size: 24px;
+    text-align: center;
+    color: #ccc;
+}
