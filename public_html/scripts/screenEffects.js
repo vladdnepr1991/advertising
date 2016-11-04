@@ -252,9 +252,9 @@
 		 * @return {void}
 		 */
 		function showPhoneInternals() {
-				toggleClass(elements.phoneInternals, classNames.visibleCls, true);
-				toggleClass(elements.phoneInternalsFrame, classNames.visibleCls, true);
-				toggleClass(elements.cardHighlight, classNames.animatedCls, true);
+			toggleClass(elements.phoneInternals, classNames.visibleCls, true);
+			toggleClass(elements.phoneInternalsFrame, classNames.visibleCls, true);
+			toggleClass(elements.cardHighlight, classNames.animatedCls, true);
 		}
 
 		/**
