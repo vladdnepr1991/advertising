@@ -6,12 +6,13 @@
 
     <body>
         <div class="advertising-wrapper loading" id="advertising-wrapper">
+            
             <div class="advertising" id="advertising">
                 <div class="advertising__header">
                     <div class="logo-wrapper">
                         <img src="images/T_SamsungLogo.png" alt="SAMSUNG" class="brand-logo logo-item" width="70" height="15">
                         <img src="images/T_GalaxyLogo.png" alt="GALAXY S7 EDGE" class="model-logo logo-item" width="188" height="30">
-                    </div>
+                    </div> <!--end of logo-->
 
                     <div class="features-wrapper">
                         <div class="feature-item">Rethink what a phone can do</div>
@@ -19,7 +20,7 @@
                         <div class="feature-item">Capture picture perfect moments in all conditions</div>
                         <div class="feature-item">Expandable memory: Fit more of what you love</div>
                     </div>
-                </div>
+                </div> <!--end of advertise header-->
 
                 <div class="screens" id="screens">
                     <div class="screen-items" id="screen-items"></div>
@@ -30,7 +31,7 @@
                             <div class="video-advertising" id="video-advertising"></div>
                         </div>
                     </div>
-                </div>
+                </div> <!--end of advertise screens-->
                 
                 <div class="additional-screen-layers">
                     <div class="phone-highlights" id="phone-highlights"></div>
@@ -39,7 +40,7 @@
                         <div class="card-highlight"></div>
                     </div>
                     <div class="phone-internals-frame" id="phone-internals-frame"></div>
-                </div>
+                </div> <!--end of additional screen layers-->
 
                 <div class="controls">
                     <p class="slider-description">DRAG TO EXPLORE</p>
@@ -47,18 +48,24 @@
                     <div class="buy-btn-wrapper">
                         <button class="buy-btn"></button>
                     </div>
-                </div>
-            </div>
+                </div> <!--end advertise controls-->
+            </div> <!--end of advertising block-->
 
             <div class="slider" id="slider">
                 <div class="slider-scale" id="slider-scale">
                     <div class="slider-handle" id="slider-handle"></div>
                 </div>
-            </div>
+            </div> <!--end of slider block-->
 
             <div class="load-screen">
                 <p>loading, please wait...</p>
-            </div>
+            </div> <!--end of loader-->
+
+            <div class="close-window-wrapper" id="close-window-wrapper">
+                <a href="#" class="close-window">
+                    Close Ad
+                </a>
+            </div> <!--end close ad btn-->
         </div>       
 
         <script src="scripts/videoAdvertising.js"></script>        

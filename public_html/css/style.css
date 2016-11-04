@@ -29,6 +29,7 @@ body {
 .advertising-wrapper.loading .slider,
 .advertising-wrapper.loading .additional-screen-layers {
     top: 260px;
+    pointer-events: none;
 }
 
 .advertising-wrapper.loading .controls .slider-description,
@@ -110,6 +111,7 @@ body {
     -webkit-transition: top 0.8s;
     -moz-transition: top 0.8s;
     transition: top 0.8s;    
+    pointer-events: none;
 }
 
 .advertising .screens .screen-effects {
@@ -177,25 +179,21 @@ body {
 .advertising .screens .screen-effects .rain .drop-item.drop-1 {
     width: 30px;
     height: 28px;
-    content: url("../images/raindrop_1.png");
 }
 
 .advertising .screens .screen-effects .rain .drop-item.drop-2 {
     width: 15px;
     height: 23px;
-    content: url("../images/raindrop_2.png");
 }
 
 .advertising .screens .screen-effects .rain .drop-item.drop-3 {
     width: 22px;
     height: 19px;
-    content: url("../images/raindrop_3.png");
 }
 
 .advertising .screens .screen-effects .rain .drop-item.drop-4 {
     width: 15px;
     height: 24px;
-    content: url("../images/raindrop_4.png");
 }
 
 .advertising .screens .screen-effects .rain .drop-item.origin-size {
@@ -383,7 +381,34 @@ body {
     height: 250px;
     width: 499px;
     padding: 100px 0 0 0;
+    pointer-events: none;
     font-size: 24px;
     text-align: center;
     color: #ccc;
+}
+
+.close-window-wrapper {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    height: 10px;
+    font-size: 12px;
+}
+
+.close-window,
+.close-window:link,
+.close-window:active,
+.close-window:hover,
+.close-window:visited {
+    color: black;
+}
+
+.close-window::after {
+    content: "x";
+    display: inline-block;
+    padding: 0 4px 1px 4px;
+    margin: 3px 3px 0 5px;
+    line-height: 1.1;
+    text-decoration: none;
+    border: 1px solid black;
 }

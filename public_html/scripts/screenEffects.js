@@ -5,7 +5,7 @@
 	 * Module creates and manipulates animations
 	 * 
 	 * @method ScreenEffects
-	 * @param {Object=} config - start configuration of module
+	 * @param {Object} config - start configuration of module
 	 * @returns {Object} - public methods
 	 */
 	function ScreenEffects(config) {
@@ -26,6 +26,7 @@
 				visibleCls: "visible",
 				dropClasses: ["drop-1", "drop-2", "drop-3", "drop-4"]
 			},
+			dropImages = ["images/raindrop_1.png", "images/raindrop_2.png", "images/raindrop_3.png", "images/raindrop_4.png"],
 			rainWrapperWidth = elements.rain ? getComputedStyle(elements.rain).width.replace("px", "") : 0,
 			rainWrapperHeight = elements.rain ? getComputedStyle(elements.rain).height.replace("px", "") : 0, 
 			dropLimit = 200,
@@ -75,7 +76,7 @@
 					elem.className = elem.className.replace(cls, "").trim();    
 				}
 			}
-		}        
+		};        
 
 		/**
 		 * Method renders drop item
@@ -89,6 +90,7 @@
 
 			drop.style.top = config.top + "px";
 			drop.style.left = config.left + "px";
+			drop.src = config.src;
 
 			toggleClass(drop, config.className, true);
 			toggleClass(drop, config.additionalClassName, true);            
@@ -124,15 +126,17 @@
 		 */
 		function dropAnimation() {
 			var rainWrapper = elements.rain,
+				rand = randomIntFromInterval(0, classNames.dropClasses.length - 1),
 				dropElem = null;     
 
 			dropsCount += 1;
 
 			dropElem = renderDropItem({
 				className: classNames.dropItemCls,
-				additionalClassName: classNames.dropClasses[randomIntFromInterval(0, classNames.dropClasses.length - 1)],
+				additionalClassName: classNames.dropClasses[rand],
 				top: randomIntFromInterval(0, rainWrapperHeight),
-				left: randomIntFromInterval(0, rainWrapperWidth)
+				left: randomIntFromInterval(0, rainWrapperWidth),
+				src: dropImages[rand]
 			});
 
 			if (rainWrapper) {
@@ -168,9 +172,9 @@
 		function animateRain() {
 			var rainWrapper = elements.rain;
 
-			if (interval) {
-				clearInterval(interval);
-			}
+				if (interval) {
+					clearInterval(interval);
+				}
 
 			if (rainWrapper) {
 				toggleClass(rainWrapper, classNames.unvisibleCls, false);
@@ -248,9 +252,9 @@
 		 * @return {void}
 		 */
 		function showPhoneInternals() {
-			toggleClass(elements.phoneInternals, classNames.visibleCls, true);
-			toggleClass(elements.phoneInternalsFrame, classNames.visibleCls, true);
-			toggleClass(elements.cardHighlight, classNames.animatedCls, true);
+				toggleClass(elements.phoneInternals, classNames.visibleCls, true);
+				toggleClass(elements.phoneInternalsFrame, classNames.visibleCls, true);
+				toggleClass(elements.cardHighlight, classNames.animatedCls, true);
 		}
 
 		/**
@@ -326,18 +330,18 @@
 		/**
 		 * Method sets the same handler to range of steps
 		 * 
-		 * @method setSeveralStepHandlers
+		 * @method addSeveralStepHandlers
 		 * @param {number|string} from
 		 * @param {number|string} to
 		 * @param {Function} handler
 		 * @returns {void}
 		 */
-		function setSeveralStepHandlers(from, to, handler) {
+		function addSeveralStepHandlers(from, to, handler) {
 			var from = Number(from),
 				to = Number(to);
 
 			for (from; from <= to; from += 1) {
-				addHandler(from, handler);
+				addHandler(from, handler)
 			}
 		}
 
@@ -359,24 +363,24 @@
 		}
 
 		(function init() {
-			setSeveralStepHandlers("0", "3", showFeatureOne);
-			setSeveralStepHandlers("4", "23", showFeatureTwo);
-			setSeveralStepHandlers("24", "49", showFeatureThree);
-			setSeveralStepHandlers("50", "60", showFeatureFour);
-			setSeveralStepHandlers("2", "19", animateRain);
-			setSeveralStepHandlers("20", "26", stopRainAnimate);
+			addSeveralStepHandlers("0", "3", showFeatureOne);
+			addSeveralStepHandlers("4", "23", showFeatureTwo);
+			addSeveralStepHandlers("24", "49", showFeatureThree);
+			addSeveralStepHandlers("50", "60", showFeatureFour);
+			addSeveralStepHandlers("2", "19", animateRain);
+			addSeveralStepHandlers("20", "26", stopRainAnimate);
 			addHandler("0", videoAdvertisingHandler);
 			addHandler("1", stopRainAnimate);
 			addHandler("20", stopRainAnimate);
 			addHandler("27", animateFlash);
 			addHandler("60", showPhoneInternals);
-		}());
+		}())
 
 		return {
 			stepHandler: stepHandler
-		};
+		}
 	}
 
 	window.advertising = window.advertising || {};
 	window.advertising.ScreenEffects = ScreenEffects; 
-}(this));
+}(this))

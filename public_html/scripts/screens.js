@@ -33,7 +33,7 @@
             var screen = document.createElement("img");
 
             screen.alt =  num;
-            screen.src = "/../images/phone/phone_" + getImageNumber(num) + ".png";
+            screen.src = "images/phone/phone_" + getImageNumber(num) + ".png";
             screen.className = "screen-item";
             screen.setAttribute("data-step", num);
             
