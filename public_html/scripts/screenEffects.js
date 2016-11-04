@@ -5,10 +5,10 @@
 	 * Module creates and manipulates animations
 	 * 
 	 * @method ScreenEffects
-	 * @param {Object} config - start configuration of module
+	 * @param {Object} [config] - start configuration of module
 	 * @returns {Object} - public methods
 	 */
-	function ScreenEffects(config) {
+	function ScreenEffects() {
 		var elements = {
 				flash: document.querySelector("#flash") || null,
 				rain: document.querySelector("#rain") || null,
@@ -32,8 +32,7 @@
 			dropLimit = 200,
 			dropsCount = 0,
 			handlersDefaultCollection = {},
-			interval = null,
-			removeDropTimeout = null;
+			interval = null;
 
 		/**
 		 * Method calculates random number limited by range
@@ -76,7 +75,7 @@
 					elem.className = elem.className.replace(cls, "").trim();    
 				}
 			}
-		};        
+		}     
 
 		/**
 		 * Method renders drop item
@@ -172,9 +171,9 @@
 		function animateRain() {
 			var rainWrapper = elements.rain;
 
-				if (interval) {
-					clearInterval(interval);
-				}
+			if (interval) {
+				clearInterval(interval);
+			}
 
 			if (rainWrapper) {
 				toggleClass(rainWrapper, classNames.unvisibleCls, false);
@@ -341,7 +340,7 @@
 				to = Number(to);
 
 			for (from; from <= to; from += 1) {
-				addHandler(from, handler)
+				addHandler(from, handler);
 			}
 		}
 
@@ -374,13 +373,13 @@
 			addHandler("20", stopRainAnimate);
 			addHandler("27", animateFlash);
 			addHandler("60", showPhoneInternals);
-		}())
+		}());
 
 		return {
 			stepHandler: stepHandler
-		}
+		};
 	}
 
 	window.advertising = window.advertising || {};
 	window.advertising.ScreenEffects = ScreenEffects; 
-}(this))
+}(this));
