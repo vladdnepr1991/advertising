@@ -20,6 +20,7 @@ module.exports = function (grunt) {
 						'scripts/screenEffects.js', 
 						'scripts/videoAdvertising.js', 
 						'scripts/main.js'
+						
 					]
 				}
 			}
