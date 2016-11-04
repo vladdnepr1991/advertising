@@ -1,0 +1,13 @@
+{
+  "name": "advertising",
+  "version": "1.0.0",
+  "description": "test",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-watch": "latest"
+  },
+  "author": "vladdnepr1991"
+}
